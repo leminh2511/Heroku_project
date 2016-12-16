@@ -3,9 +3,9 @@
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">-->
-<link rel="stylesheet" href="../static/w3.css">
+{#<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">#}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<link rel="stylesheet" href="../static/w3.css">
 <style>
 body {
     background-image: url("http://assets.bluefingroup.co.uk/media/filer_public_thumbnails/filer_public/30/dc/30dcb5b3-815d-4e4c-af3e-d2823050911c/sports_montage_-_chosen_concept_v9_carouselv3_rgb.jpg__1600x580_q85_crop_upscale.jpg");
@@ -28,15 +28,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   <div class="w3-white w3-xlarge w3-padding-xlarge" style="max-width:1200px;margin:auto">
     <div class="w3-opennav w3-left w3-hover-text-grey" onclick="w3_open()">☰</div>
     <div class="w3-right">Mail</div>
-    <div class="w3-center w3-text-red">My Favorite Sport</div>
+    <div class="w3-center w3-text-red" style="font-family: "Segoe UI", Arial, sans-serif">My Favorite Sport</div>
   </div>
 </div>
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
-    <div class="w3=border-cyan w3-pale-yellow w3-round-xlarge ">
+    <div class="w3=border-cyan w3-pale-yellow w3-round-xlarge">
+
         <h3 class="w3-purple" align="center">Welcome ^o^</h3>
-        <p style="pink" align="center">This's my favorite sports. Let's see all of them :D </p>
+        <p class="w3-container" align="center">This's my favorite sports. Let's see all of them :D </p>
     </div>
   <!-- First Photo Grid-->
     <div class="w3-row-padding w3-padding-16 w3-center">
@@ -49,9 +50,35 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
                 <a href={{ sport["link"] }}><h4 class="w3-text-red">Click here ^^</h4></a>
             </div>
 
+
         </div>
     {% endfor %}
     </div>
+    <br>
+<div class="w3-center">
+    <form class="w3-form w3-container" method="post" action="{{ url_for("sport")}}">
+        <div>
+            <h3 class="w3-container w3-green w3-center w3-margin-bottom">Please tell me about your favorite sport :D </h3>
+        </div>
+        <div class="w3-border-red w3-round-xlarge w3-container">
+            <p>
+                <label for="name" class="w3-red" style="font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif">NAME</label>
+                <input class="w3-input" type="text" name="name"></p>
+            <p>
+                <label for="sport" class="w3-red" style="font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif">YOUR SPORT</label>
+                <input class="w3-input" type="text" name="sport"></p>
+            <p>
+                <label for="link" class="w3-red" style="font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif">LINK</label>
+                <input class="w3-input" type="text" name="link"></p>
+            <input type="submit">
 
-  </div>
+        </div>
+
+    </form>
+</div>
+
+
+
+
+
 

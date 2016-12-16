@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="../static/w3.css">
+{#    mongodb://<dbuser>:<dbpassword>@ds133428.mlab.com:33428/minhle#}
+
+</head>
+<body>
+
+    <form class="w3-form w3-container" method="post" action="{{ url_for("register")}}">
+        <div>
+            <h3 class="w3-container w3-indigo w3-center w3-margin-bottom">Register, you won't regret</h3>
+        </div>
+        <label for="email">Email</label><br>
+        <input class="w3-input" type="text" name="email"><br>
+        <label for="password">Password</label><br>
+        <input class="w3-input" type="password" name="password"><br>
+        <input type="submit">
+    </form>
+
+</body>
+</html>
