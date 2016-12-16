@@ -74,7 +74,7 @@ def sport():
 
         idea=Sport(name=name,sport=sport,link=link)
         idea.save()
-        return "Thank for your ideas"
+        return render_template("Thankyou.html")
 
 @app.route("/myself")
 def myself():
