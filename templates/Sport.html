@@ -44,10 +44,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
     {% for sport in sport_list %}
         <div class="w3-third w3-container w3-hover-opacity">
             <div class="w3-border w3-border-purple w3-pale-lime w3-round-xlarge w3-pale-yellow">
-                <img src={{ sport["img"] }} width="300" height="300">
-                <h3>{{ sport["Name"] }}</h3>
-                <p>{{ sport["Desc"] }}</p>
-                <a href={{ sport["link"] }}><h4 class="w3-text-red">Click here ^^</h4></a>
+                <img src={{ sport.img }} width="300" height="300">
+                <h3>{{ sport.name }}</h3>
+                <p>{{ sport.desc }}</p>
+                <a href={{ sport.link }}><h4 class="w3-text-red">Click here ^^</h4></a>
             </div>
 
 
@@ -61,16 +61,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
             <h3 class="w3-container w3-green w3-center w3-margin-bottom">Please tell me about your favorite sport :D </h3>
         </div>
         <div class="w3-border-red w3-round-xlarge w3-container">
-            <p>
+
                 <label for="name" class="w3-red" style="font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif">NAME</label>
-                <input class="w3-input" type="text" name="name"></p>
-            <p>
-                <label for="sport" class="w3-red" style="font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif">YOUR SPORT</label>
-                <input class="w3-input" type="text" name="sport"></p>
-            <p>
+                <input class="w3-input" type="text" name="name">
+
+                <label for="desc" class="w3-red" style="font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif">DESC</label>
+                <input class="w3-input" type="text" name="desc">
+
                 <label for="link" class="w3-red" style="font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif">LINK</label>
-                <input class="w3-input" type="text" name="link"></p>
-            <input type="submit">
+                <input class="w3-input" type="text" name="link">
+
+                <label for="img" class="w3-red" style="font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif">LINK IMG</label>
+                <input class="w3-input" type="text" name="img">
+                <input type="submit">
 
         </div>
 
