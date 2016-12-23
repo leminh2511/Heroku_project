@@ -117,8 +117,39 @@ def sport():
         img=request.form["img"]
 
         idea=Sport(name=name,desc=desc,link=link,img=img)
+        # name ben trai la name cua class sport, ben phai la name khai bao o tren
         idea.save()
-        return 'ok'
+        return render_template("Thankyou.html")
+@app.route("/adding")
+def adding():
+    return render_template("Adding_form.html")
+@app.route("/delete/<string:id>")
+def delete(id):
+    sport=Sport.objects().with_id(id)
+    if sport is not None:
+        sport.delete()
+        return render_template("Thankyou.html")
+    elif sport is None:
+        return "Check your id"
+@app.route("/update/<string:id>")
+def update(id):
+    sport = Sport.objects().with_id(id)
+    if request.method == "GET":
+        return render_template("Update_form.html")
+    elif request.method == "POST":
+        if request.form["name"]!="":
+            name=request.form["name"]
+        if request.form["desc"]!="":
+            desc=request.form["desc"]
+        if request.form["link"]!="":
+            link=request.form["link"]
+        if request.form["img"]!="":
+            img=request.form["img"]
+        sport.update(name=name,desc=desc,link=link,img=img)
+        return render_template("Thankyou.html")
+
+
+
 
 @app.route("/myself")
 def myself():

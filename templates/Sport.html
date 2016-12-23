@@ -39,6 +39,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
         <h3 class="w3-purple" align="center">Welcome ^o^</h3>
         <p class="w3-container" align="center">This's my favorite sports. Let's see all of them :D </p>
     </div>
+
+<div class="w3-border w3-round-xlarge w3-pale-green w3-border-lime w3-container">
+    <a href="/adding"><h2 class="w3-btn w3-border w3-border-red w3-round-xlarge">Adding</h2></a>
+    <a href="/myself"><h2 class="w3-btn w3-border w3-border-red w3-round-xlarge">About</h2></a>
+</div>
   <!-- First Photo Grid-->
     <div class="w3-row-padding w3-padding-16 w3-center">
     {% for sport in sport_list %}
@@ -48,6 +53,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
                 <h3>{{ sport.name }}</h3>
                 <p>{{ sport.desc }}</p>
                 <a href={{ sport.link }}><h4 class="w3-text-red">Click here ^^</h4></a>
+                <a href="/delete/{{ sport.id }}"><h4 class="w3-btn w3-border">Delete</h4></a>
+                <a href="/update/{{ sport.id }}"><h4 class="w3-btn w3-border">Update</h4></a>
+
+
+
             </div>
 
 
@@ -55,30 +65,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
     {% endfor %}
     </div>
     <br>
-<div class="w3-center">
-    <form class="w3-form w3-container" method="post" action="{{ url_for("sport")}}">
-        <div>
-            <h3 class="w3-container w3-green w3-center w3-margin-bottom">Please tell me about your favorite sport :D </h3>
-        </div>
-        <div class="w3-border-red w3-round-xlarge w3-container">
-
-                <label for="name" class="w3-red" style="font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif">NAME</label>
-                <input class="w3-input" type="text" name="name">
-
-                <label for="desc" class="w3-red" style="font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif">DESC</label>
-                <input class="w3-input" type="text" name="desc">
-
-                <label for="link" class="w3-red" style="font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif">LINK</label>
-                <input class="w3-input" type="text" name="link">
-
-                <label for="img" class="w3-red" style="font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif">LINK IMG</label>
-                <input class="w3-input" type="text" name="img">
-                <input type="submit">
-
-        </div>
-
-    </form>
-</div>
 
 
 
