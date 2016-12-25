@@ -1,8 +1,18 @@
-from flask import Flask,render_template,url_for,request
+from flask import Flask,render_template,url_for,request,redirect
 import mongoengine
 from mongoengine import *
+import json
+from flask_restful import Resource, Api
 
 app = Flask(__name__)
+api=Api(app)
+
+class SportResource(Resource):
+    def get(self):
+        return {"name":"Long lon","desc":"ahihi"}
+
+api.add_resource(SportResource,"/api/sport1")
+
 host="ds133428.mlab.com"
 port=33428
 db_name="minhle"
@@ -119,10 +129,14 @@ def sport():
         idea=Sport(name=name,desc=desc,link=link,img=img)
         # name ben trai la name cua class sport, ben phai la name khai bao o tren
         idea.save()
-        return render_template("Thankyou.html")
+        return render_template("Thankyou.html",)
+
+
 @app.route("/adding")
 def adding():
     return render_template("Adding_form.html")
+
+
 @app.route("/delete/<string:id>")
 def delete(id):
     sport=Sport.objects().with_id(id)
@@ -131,22 +145,34 @@ def delete(id):
         return render_template("Thankyou.html")
     elif sport is None:
         return "Check your id"
-@app.route("/update/<string:id>")
+
+
+@app.route("/update/<id>",methods=["GET","POST"])
 def update(id):
+    # print(Sport.objects())
     sport = Sport.objects().with_id(id)
-    if request.method == "GET":
-        return render_template("Update_form.html")
-    elif request.method == "POST":
-        if request.form["name"]!="":
+    # if sport is None:
+    #     return redirect(url_for("sport"))
+    # elif sport is not None:
+    if request.method=="GET":
+        return render_template("Update_form.html",id=id)
+    elif request.method=="POST":
+        if request.form["name"] != "":
             name=request.form["name"]
-        if request.form["desc"]!="":
+            sport.update(set__name=name)
+        if request.form["desc"] != "":
             desc=request.form["desc"]
-        if request.form["link"]!="":
+            sport.update(set__desc=desc)
+        if request.form["link"] != "":
             link=request.form["link"]
-        if request.form["img"]!="":
+            sport.update(set__link=link)
+        if request.form["img"] != "":
             img=request.form["img"]
-        sport.update(name=name,desc=desc,link=link,img=img)
-        return render_template("Thankyou.html")
+            sport.update(set__img=img)
+        return redirect(url_for("sport"))
+
+
+
 
 
 
