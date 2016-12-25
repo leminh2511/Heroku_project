@@ -1,9 +1,0 @@
-Ð? CHO DATA LÊN MLAB THÌ PH?I KHAI BÁO
-vDU
-CLASS SPORT(NAME,IMG,LINK,DESC):
-	NAME=STRINGFIELD() (TUONG TU VS 4 BIEN)
-
-FOR SPORT IN SPORT_LIST:
-	name=sport["name"] (tuong tu vs 4 cai)
-	idea=sport(name,img,link,desc)
-	idea.save()
