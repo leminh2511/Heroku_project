@@ -157,6 +157,7 @@ def update(id):
     if request.method=="GET":
         return render_template("Update_form.html",id=id)
     elif request.method=="POST":
+
         if request.form["name"] != "":
             name=request.form["name"]
             sport.update(set__name=name)
